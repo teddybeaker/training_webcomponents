@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <foo></foo>
+
+    <script>
+      class MyFoo extends HTMLElement {
+        constructor() {
+          super();
+          console.log('in MyFoo:constructor');
+          const el = document.createElement('span');
+          el.setAttribute('class', 'my-foo');
+          el.innerHTML = "asdfasdf";
+          //el.setAttribute('title', 'foo');
+          console.log('at end of MyFoo:const');
+        }
+      }
+
+      customElements.define('my-foo', MyFoo);
+      document.body.
+    </script>
+
+    <my-foo></my-foo>
+
+  </body>
+</html>
