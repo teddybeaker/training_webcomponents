@@ -79,7 +79,7 @@ Probleme:
   ```
   parent { font-size: smaller; }
   ```
-- _ bleed out_:mein Komponente beeinflusst ungewollt andere Komponenten
+- _ bleed out_: mein Komponente beeinflusst ungewollt andere Komponenten
   ```
   button { border: 1px solid black; }
   ```

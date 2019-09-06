@@ -23,7 +23,7 @@ _npm install -g reveal-md_
     - 4 Dashes `----` um eine neue Folie in der selben Spalte zu erstellen (d.h. die nächste Folie kommt unterhalb der aktuellen)
 
 ## Einfaches Beispiel
-TODO
+siehe Ordner vanilla_sample
 
 ## Angular Elements
 TODO
@@ -63,3 +63,18 @@ Beschlüsse:
 
   - https://openweathermap.org/api  
   - Fallback: Bluesky-Navigation (services-App), darstellen von Links, evtl noch abhängig von kontext ob eingeloggt
+
+### Email vom ?.8.2019
+- wir verwenden das Fallback (Bluesky-Navigation)
+
+### Übungslauf 6.9.2019 (Steffi)
+- Slides: 18min
+- Vanilla:
+  - 13:11 - 13:20 -> ShadowDOM
+  - 13:20 - 13:27 -> JavaScript
+  - 13:27 - 13:33 -> Attributes
+  - Total: 22min
+
+TODO: Steffi
+- write IntelliJ-Snippets
+- cut down slides time by only showing examples
