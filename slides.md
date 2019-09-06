@@ -153,9 +153,8 @@ Note:
 ### Shadow DOM
 
 - Gekapseltes DOM
+  - für JS optional
 - durch Browser schon lange verwendet (z.B. Datepicker, Video)
-
-TODO kapselt es nur CSS oder auch JS?
 
 Note:
 - https://dom.spec.whatwg.org/#shadow-trees

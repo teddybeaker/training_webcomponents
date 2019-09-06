@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Component</title>
+  </head>
+  <body>
+    <blue-sky>Bluesky</blue-sky>
+    
+    <template id="bluesky">
+      <ul class="wrapper">
+        <li><a href="https://services.bluesky-it.ch/xwiki">Bluesky Wiki</a></li>
+			  <li><a href="https://services.bluesky-it.ch/jira">Jira Issue Tracking</a></li>
+			  <li><a href="https://services.bluesky-it.ch/timeometer">Zeiterfassung</a></li>
+      </ul>
+      <span class="counter-wrapper">Link clicked <span class="counter">0</span> times</span>
+    </template>
+
+    <script>
+      class BlueSky extends HTMLElement {
+        constructor () {
+          super();
+          console.log(' in constructor of BlueSky');
+          const shadowRoot = this.attachShadow({mode: 'open'}); // allow access from outside
+
+          let template = document.getElementById('bluesky');
+          let templateContent = template.content;
+
+          // attach some JS
+          templateContent.querySelectorAll('a').forEach(
+            link => {
+              link.setAttribute('target', '_blank');
+              link.addEventListener('click', () => this.increment());
+            }
+          );
+
+          this.counter = 0;
+          this.counterElement = templateContent.querySelector('.counter');
+
+          shadowRoot.appendChild(templateContent);
+
+          // CSS for the shadow DOM
+          const style = document.createElement('style');
+          style.textContent = `ul {
+            list-style: none;
+            padding-left: 0;
+          }
+          `;
+          shadowRoot.appendChild(style);
+        }
+
+        increment() {
+          this.counterElement.textContent = ++this.counter;
+        }
+      }
+      customElements.define('blue-sky', BlueSky);
+    </script>
+  </body>
+</html>

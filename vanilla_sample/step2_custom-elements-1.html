@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Component</title>
+  </head>
+  <body>
+    <blue-sky>Bluesky</blue-sky>
+    <script>
+      class BlueSky extends HTMLElement {
+        constructor () {
+          super();
+          console.log(' in constructor of BlueSky');
+
+          const wrapper = document.createElement('span');
+          wrapper.setAttribute('class','wrapper');
+
+          const link = document.createElement('a');
+          link.setAttribute('href','https://services.bluesky-it.ch/xwiki');
+          link.textContent = 'Wiki';
+          link.setAttribute('target', '_blank');
+
+          wrapper.appendChild(link);
+          document.body.appendChild(wrapper);
+        }
+      }
+      customElements.define('blue-sky', BlueSky);
+    </script>
+  </body>
+</html>

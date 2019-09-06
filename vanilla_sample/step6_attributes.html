@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Component</title>
+  </head>
+  <body>
+    <blue-sky color="red">Bluesky</blue-sky>
+    <button id="toggle">Toggle color</button>
+
+    <script>
+      document.querySelector('#toggle').addEventListener('click', () => {
+        const element = document.querySelector('blue-sky');
+        const currentColor = element.getAttribute('color');
+        const newColor = currentColor === 'red' ? 'blue' : 'red';
+        element.setAttribute('color', newColor);
+      });
+    </script>
+
+    <template id="bluesky">
+      <ul class="wrapper">
+        <li><a href="https://services.bluesky-it.ch/xwiki" target="_blank">Bluesky Wiki</a></li>
+			  <li><a href="https://services.bluesky-it.ch/jira" target="_blank">Jira Issue Tracking</a></li>
+			  <li><a href="https://services.bluesky-it.ch/timeometer" target="_blank">Zeiterfassung</a></li>
+      </ul>
+    </template>
+
+    <script>
+      class BlueSky extends HTMLElement {
+        constructor () {
+          super();
+          console.log('in constructor of BlueSky');
+          const shadowRoot = this.attachShadow({mode: 'open'}); // allow access from outside
+
+          let template = document.getElementById('bluesky');
+          let templateContent = template.content;
+          shadowRoot.appendChild(templateContent);
+
+          // CSS for the shadow DOM
+          const style = document.createElement('style');
+          style.textContent = `
+          .wrapper a {
+            color: inherit;
+          }
+          .wrapper {
+            color: ${this.getAttribute('color')}
+          }
+          ul {
+            list-style: none;
+            padding-left: 0;
+          }
+          `;
+          shadowRoot.appendChild(style);
+        }
+
+        static get observedAttributes() { return ['color']; }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+          console.log(`attribute ${name} changed value from <${oldValue}> to <${newValue}>`);
+          this.shadowRoot.querySelector('.wrapper').style = `color: ${newValue}`;
+        }
+      }
+      customElements.define('blue-sky', BlueSky);
+    </script>
+  </body>
+</html>

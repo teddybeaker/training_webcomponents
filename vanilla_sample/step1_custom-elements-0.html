@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Web Component</title>
+  </head>
+  <body>
+    <blue-sky>Bluesky</blue-sky>
+    <script>
+      class BlueSky extends HTMLElement {
+        constructor () {
+          super();
+          console.log(' in constructor of BlueSky');
+        }
+      }
+      customElements.define('blue-sky', BlueSky);
+    </script>
+  </body>
+</html>
