@@ -4,11 +4,16 @@ import { NgModule, Injector } from '@angular/core';
 import {createCustomElement} from '@angular/elements';
 
 import { NavComponent } from './nav.component';
+import { OverlayComponent } from './overlay.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [NavComponent, OverlayComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    OverlayModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: []
@@ -19,7 +24,8 @@ export class AppModule {
     injector: Injector
   ) {
     const elements: any[] = [
-      [NavComponent, 'bsy-popup-nav']
+      [OverlayComponent, 'bsy-nav-overlay'],
+      [NavComponent, 'bsy-nav-standalone']
     ];
 
     for (const [component, name] of elements) {

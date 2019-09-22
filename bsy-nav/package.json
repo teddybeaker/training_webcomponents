@@ -6,6 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod --output-hashing=none && sh merge-build.sh",
+    "build:dev": "ng build --output-hashing=none && sh merge-dev-build.sh",
+    "deploy": "yarn build:prod && firebase deploy",
+    "deploy:dev": "yarn build:dev && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
