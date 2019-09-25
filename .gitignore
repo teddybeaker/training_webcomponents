@@ -92,3 +92,5 @@ typings/
 # ide files
 .idea
 .vscode
+
+**/.firebase

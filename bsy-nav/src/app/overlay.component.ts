@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Overlay, GlobalPositionStrategy } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { NavComponent } from './nav.component';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Overlay} from '@angular/cdk/overlay';
+import {NavService} from './nav.service';
+import {ThemePalette} from '@angular/material/core';
+import {NavComponent, Target} from './nav.component';
 
 @Component({
   selector: 'bsy-overlay',
   template: `
-  <div class="nav-wrapper" cdkDrag>
-    <bsy-nav></bsy-nav>
+  <div class="nav-wrapper" fxLayout="row" fxLayoutAlign="space-between center" cdkDrag>
+    <bsy-nav (navigate)="navigate.emit($event)" #nav></bsy-nav>
 
     <div class="drag-handle" cdkDragHandle>
-      <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+      <svg width="30px" fill="currentColor" viewBox="0 0 24 24">
         <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
         <path d="M0 0h24v24H0z" fill="none"></path>
       </svg>
@@ -20,16 +21,12 @@ import { NavComponent } from './nav.component';
   styles: [
     `
     .nav-wrapper {
-      width: 200px;
-      height: 200px;
+      width: 500px;
+      height: 50px;
       padding: 10px;
       box-sizing: border-box;
       border: solid 1px #ccc;
       color: rgba(0, 0, 0, 0.87);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       background: #fff;
       border-radius: 4px;
       position: relative;
@@ -60,18 +57,27 @@ import { NavComponent } from './nav.component';
 })
 export class OverlayComponent implements OnInit {
 
+  @Output()
+  navigate: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
+  @Input()
+  set color(color: ThemePalette) {
+    this.navService.setColor(color);
+  }
+
+  @Input()
+  set target(target: Target) {
+    this.nav.target = target;
+  }
+
+  @ViewChild('nav', {static: false})
+  nav: NavComponent;
+
   constructor(
-    private overlay: Overlay
+    private overlay: Overlay,
+    private navService: NavService
   ) { }
 
-  ngOnInit() {
-    /*console.log('creating overlay');
-    const overlayRef = this.overlay.create({
-      positionStrategy: new GlobalPositionStrategy()
-    });
-    const navPortal = new ComponentPortal(NavComponent);
-    console.log('attaching component to overlay');
-    overlayRef.attach(navPortal);*/
-  }
+  ngOnInit() { }
 
 }
