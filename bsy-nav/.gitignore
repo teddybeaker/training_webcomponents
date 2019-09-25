@@ -2,7 +2,7 @@
 
 # compiled output
 /dist/bsy-nav
-/dist/elements/*.js
+/dist/elements/ship*.js
 /dist/elements/*.css
 /tmp
 /out-tsc
