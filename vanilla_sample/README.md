@@ -5,6 +5,7 @@ Sample in plain JavaScript
 ## Custom Element
 - `class BlueSky extends HTMLElement`
 - `customElements.define('blue-sky', BlueSky);`
+- add some content
 - `document.body.appendChild(link);`
   - ends up anywhere in DOM
 

@@ -44,8 +44,17 @@ Note:
 
 ----
 
+### Beispiel select
+
+<img src="images/select.png">
+<img src="images/select_focused.png">
+<img src="images/select_opened.png">
+
+----
+
 ### Beispiel AEM
 
+<img src="images/aem_component.png">
 - JSP/HTL und clientlibs gruppiert, zusammen ausgeliefert
 - Scripts und Styles nicht einfach isolierbar
 
@@ -77,9 +86,9 @@ $('.my-comp input').on('blur', ...);
 Probleme:
 - _bleed in_: Elemente von ausserhalb beeinflussen meine Komponente
   ```
-  parent { font-size: smaller; }
+  .some-parent { font-size: smaller; }
   ```
-- _ bleed out_: mein Komponente beeinflusst ungewollt andere Komponenten
+- _bleed out_: mein Komponente beeinflusst ungewollt andere Komponenten
   ```
   button { border: 1px solid black; }
   ```
@@ -106,7 +115,7 @@ Note:
 
 ----
 
-### Komponenten
+### Komponenten - Vorkommen
 
 - Angular, React, Vue
 - Styles einkompilieren
