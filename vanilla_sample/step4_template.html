@@ -23,7 +23,7 @@
 
           let template = document.getElementById('bluesky');
           let templateContent = template.content;
-          shadowRoot.appendChild(templateContent);
+          shadowRoot.appendChild(templateContent.cloneNode(true));
 
           // CSS for the shadow DOM
           const style = document.createElement('style');
