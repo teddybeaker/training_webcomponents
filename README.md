@@ -26,7 +26,7 @@ _npm install -g reveal-md_
 siehe Ordner vanilla_sample
 
 ## Angular Elements
-TODO
+siehe ordner bsy-nav
 
 ## Protokoll
 
@@ -75,6 +75,6 @@ Beschlüsse:
   - 13:27 - 13:33 -> Attributes
   - Total: 22min
 
-TODO: Steffi
-- write IntelliJ-Snippets
-- cut down slides time by only showing examples
+### Übungslauf 26.9.2019 (Steffi)
+- Sides: 7min
+- Vanilla: 18min
