@@ -10,7 +10,8 @@ Autoren: Stefani Gerber, Carlo Field
 _npm install -g reveal-md_
 
 ### Folien anzeigen
--   `reveal-md slides.md`
+-   `reveal-md slides.md` für die Einführungsfolien
+-   `reveal-md bsy-nav/slides.md` für die Folien zu Angular Elements
 -   für Autorenansicht `s` drücken (im Browserfenster)
 -   `esc` drücken, um zur Übersicht zu gelangen
 -   Zoom mit alt (option on mac) + click
@@ -26,7 +27,7 @@ _npm install -g reveal-md_
 siehe Ordner vanilla_sample
 
 ## Angular Elements
-siehe ordner bsy-nav
+siehe Ordner bsy-nav
 
 ## Protokoll
 
@@ -64,7 +65,7 @@ Beschlüsse:
   - https://openweathermap.org/api  
   - Fallback: Bluesky-Navigation (services-App), darstellen von Links, evtl noch abhängig von kontext ob eingeloggt
 
-### Email vom ?.8.2019
+### Email vom 13.8.2019
 - wir verwenden das Fallback (Bluesky-Navigation)
 
 ### Übungslauf 6.9.2019 (Steffi)
